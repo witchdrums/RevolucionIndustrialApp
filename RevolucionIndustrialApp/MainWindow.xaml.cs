@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Resources;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -13,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace RevolucionIndustrialApp
 {
@@ -45,10 +49,10 @@ namespace RevolucionIndustrialApp
                 ValidateYearWithinRange(userDate);
 
                 this.Slider_Year.Value = userDate.Year;
-                //MovePopup();
                 ValidateYearWithinRevolutionRange(userDate);
                 ValidateDateWithinPresentDayRange(userDate);
-                
+                SetDateMessage(userDate);
+
             }
             catch (ArgumentException aException)
             {
@@ -77,6 +81,45 @@ namespace RevolucionIndustrialApp
             }
         }
 
+
+        private void SetRevolucion2DateMessage(DateTime userDate)
+        {
+            int minimum = (int)RevolucionIntervals.Revolucion2_MinimumYear;
+            int maximum = (int)RevolucionIntervals.Revolucion2_MaximumYear;
+            if (minimum <= userDate.Year && userDate.Year <= maximum)
+            {
+                this.TextBlock_RevolucionDateMessage.Text = Resource.ResourceManager.GetString("General_TextBlock_Industria2.0");
+            }
+        }
+
+        private void SetRevolucion3DateMessage(DateTime userDate)
+        {
+            int minimum = (int)RevolucionIntervals.Revolucion3_MinimumYear;
+            int maximum = (int)RevolucionIntervals.Revolucion3_MaximumYear;
+            if (minimum <= userDate.Year && userDate.Year <= maximum)
+            {
+                this.TextBlock_RevolucionDateMessage.Text = Resource.ResourceManager.GetString("General_TextBlock_Industria3.0");
+            }
+        }
+
+
+        private void SetRevolucion4DateMessage(DateTime userDate)
+        {
+            int minimum = (int)RevolucionIntervals.Revolucion4_MinimumYear;
+            int maximum = (int)RevolucionIntervals.Revolucion4_MaximumYear;
+            if (minimum <= userDate.Year && userDate.Year <= maximum)
+            {
+                this.TextBlock_RevolucionDateMessage.Text = Resource.ResourceManager.GetString("General_TextBlock_Industria4.0");
+            }
+        }
+
+        private void SetPeriodoTransitorioDateMessage(DateTime userDate)
+        {
+            string currentDateMessage = this.TextBlock_RevolucionDateMessage.Text;
+            if (String.IsNullOrEmpty(currentDateMessage))
+            {
+                this.TextBlock_RevolucionDateMessage.Text = Resource.ResourceManager.GetString("General_TextBlock_PeriodoTransitorio");
+            }
         }
         private DateTime GetUserDate(string userInput) 
         {

@@ -404,9 +404,12 @@
             HorizontalAlignment="Right"
             Margin="40,0"/>
         <TextBlock
+            x:Name="TextBlock_RevolucionDateMessage"
             Grid.Row="6"
-            Text="Mensaje"
-            FontSize="20"
+            Text=""
+            TextWrapping="Wrap"
+            TextAlignment="Justify"
+            FontSize="15"
             HorizontalAlignment="Left"
             
             Margin="40,0"/>

@@ -117,4 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="General_TextBlock_Industria1.0" xml:space="preserve">
+    <value>Un día del período de la Industria 1.0 que se caracterizó por la predominancia de las industrias metalúrgica, textil y por el ferrocarril como principal medio de transporte, que  utilizaba el carbón como fuente de energía. Por su parte, el telégrafo y el teléfono revolucionaron la forma en la que  las comunicaciones eran concebidas hasta ese momento.</value>
+  </data>
+  <data name="General_TextBlock_Industria2.0" xml:space="preserve">
+    <value>Un día del período de la Industria 2.0 el cual supuso el desarrollo de las industrias química, eléctrica y automovilística. El coche y más tarde el avión, nacieron al albor de los cambios en este segundo periodo, que se extendió durante más de un siglo. Estos medios cambiaron el carbón por el petróleo como fuente de energía.</value>
+  </data>
+  <data name="General_TextBlock_Industria3.0" xml:space="preserve">
+    <value>Un día del período de la Industria 3.0 caracterizada por el uso de la electrónica, las tecnologías de la información y las telecomunicaciones. Estos cambios permitieron la automatización de los procesos de producción y el surgimiento de Internet, que sin duda, ha supuesto una importante innovación en nuestro modo de ver y entender la vida y sobre todo la comunicación. Las energías  alternativas y renovables, la nuclear y el petróleo se han erigido durante estos años como las principales fuentes de energía.</value>
+  </data>
+  <data name="General_TextBlock_Industria4.0" xml:space="preserve">
+    <value>Un día del período de la Industria 4.0, esta nueva revolución no ha hecho sino multiplicar la velocidad, el alcance y el impacto de las herramientas que surgieron en el periodo anterior, mediante la conexión de los mundos digital, físico y biológico. Fábricas inteligentes, lugares de producción en los que los dispositivos están conectados entre sí con el objetivo de difuminar las barreras entre la demanda, el diseño, la fabricación y el suministro.</value>
+  </data>
+  <data name="General_TextBlock_PeriodoTransitorio" xml:space="preserve">
+    <value>Período de transición entre evoluciones industriales</value>
+  </data>
 </root>
