@@ -81,10 +81,11 @@ namespace RevolucionIndustrialApp
             }
             else
             {
-                if (userDate.Year != currentDate.Year-1)
+                if (!(userDate.Year < currentDate.Year))
                 {
                     ValidateUserMonthWithinPresentMonth(userDate, currentDate);
                 }
+               
             }
         }
 
