@@ -102,6 +102,7 @@ namespace RevolucionIndustrialApp
             }
         }
 
+
         private void SetRevolucion4DateMessage(DateTime userDate)
         {
             int minimum = (int)RevolucionIntervals.Revolucion4_MinimumYear;
