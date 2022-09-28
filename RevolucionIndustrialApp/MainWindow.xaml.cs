@@ -53,8 +53,29 @@ namespace RevolucionIndustrialApp
             catch (ArgumentException aException)
             {
                 this.TextBox_Date.BorderBrush = System.Windows.Media.Brushes.Red;
-                this.TextBlock_InputError.Text=aException.Message;            }
-            
+                this.TextBlock_InputError.Text=aException.Message;            
+            }
+        }
+
+        private void SetDateMessage(DateTime userDate) 
+        {
+            this.TextBlock_RevolucionDateMessage.Text = "";
+            SetRevolucion1DateMessage(userDate);
+            SetRevolucion2DateMessage(userDate);
+            SetRevolucion3DateMessage(userDate);
+            SetRevolucion4DateMessage(userDate);
+            SetPeriodoTransitorioDateMessage(userDate);
+        }
+
+        private void SetRevolucion1DateMessage(DateTime userDate) 
+        {
+            int minimum = (int)RevolucionIntervals.Revolucion1_MinimumYear;
+            int maximum = (int)RevolucionIntervals.Revolucion1_MaximumYear;
+            if (minimum <= userDate.Year && userDate.Year <= maximum)
+            { 
+                this.TextBlock_RevolucionDateMessage.Text = Resource.ResourceManager.GetString("General_TextBlock_Industria1.0");
+            }
+        }
 
         }
         private DateTime GetUserDate(string userInput) 
