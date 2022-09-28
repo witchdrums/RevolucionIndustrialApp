@@ -120,13 +120,6 @@ namespace RevolucionIndustrialApp
                 this.TextBlock_RevolucionDateMessage.Text = Resource.ResourceManager.GetString("General_TextBlock_PeriodoTransitorio");
             }
         }
-
-        private void MovePopup() 
-        {
-            this.Popup_Alert.IsOpen = true;
-            this.Popup_Alert.HorizontalOffset += this.Slider_Year.Value/3;
-        }
-
         private DateTime GetUserDate(string userInput) 
         {
             DateTime userDate = new DateTime(
@@ -140,16 +133,44 @@ namespace RevolucionIndustrialApp
         private void ValidateDateWithinPresentDayRange(DateTime userDate)
         {
             DateTime currentDate = DateTime.Now;
+            ValidateUserYearWithinPresentYear(userDate, currentDate);
+        }
+
+        private void ValidateUserYearWithinPresentYear(DateTime userDate, DateTime currentDate)
+        {
             if (userDate.Year > currentDate.Year)
             {
                 throw new ArgumentException("Ups! No sé adivinar el futuro.");
             }
-            if (userDate.Year == currentDate.Year) 
+            else
             {
-                if (userDate.Month > currentDate.Month)
+                if (userDate.Year != currentDate.Year-1)
                 {
-                    throw new ArgumentException("Ups! No sé adivinar el futuro.");
+                    ValidateUserMonthWithinPresentMonth(userDate, currentDate);
                 }
+            }
+        }
+
+        private void ValidateUserMonthWithinPresentMonth(DateTime userDate, DateTime currentDate)
+        {
+
+            if (userDate.Month > currentDate.Month)
+            {
+                throw new ArgumentException("Ups! No sé adivinar el futuro.");
+            }
+            else
+            {
+                ValidateUserDayWithinPresentDay(userDate, currentDate);
+            }
+            
+
+        }
+
+        private void ValidateUserDayWithinPresentDay(DateTime userDate, DateTime currentDate)
+        {
+            if (userDate.Day > currentDate.Day)
+            { 
+                throw new ArgumentException("Ups! No sé adivinar el futuro.");
             }
         }
 
