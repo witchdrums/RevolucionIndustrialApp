@@ -57,7 +57,13 @@ namespace RevolucionIndustrialApp
             catch (ArgumentException aException)
             {
                 this.TextBox_Date.BorderBrush = System.Windows.Media.Brushes.Red;
-                this.TextBlock_InputError.Text=aException.Message;            
+                string message = aException.Message;
+                if (message.Contains("Year")) 
+                {
+                    message = "Ups! Intenta de nuevo.";
+                }
+                this.TextBlock_InputError.Text=message;
+                this.TextBlock_RevolucionDateMessage.Text = "";
             }
         }
 
@@ -123,6 +129,7 @@ namespace RevolucionIndustrialApp
         }
         private DateTime GetUserDate(string userInput) 
         {
+
             DateTime userDate = new DateTime(
                 GetYearFromInput(userInput),
                 GetMonthFromInput(userInput),
