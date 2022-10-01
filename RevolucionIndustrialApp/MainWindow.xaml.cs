@@ -129,11 +129,11 @@ namespace RevolucionIndustrialApp
         }
         private DateTime GetUserDate(string userInput) 
         {
-
+            int[] dateValues = GetDateValues(userInput);
             DateTime userDate = new DateTime(
-                GetYearFromInput(userInput),
-                GetMonthFromInput(userInput),
-                GetDayFromInput(userInput)
+                dateValues[2],
+                dateValues[1],
+                dateValues[0]
             );
             return userDate;
         }
@@ -227,33 +227,10 @@ namespace RevolucionIndustrialApp
 
         }
 
-        private int GetDayFromInput(String userInput)
+        private int[] GetDateValues(String userInput)
         {
-            string dayString = "";
-            dayString += userInput[0];
-            dayString += userInput[1];
-            int day = Int32.Parse(dayString);
-            return day;
-        }
-
-        private int GetMonthFromInput(String userInput)
-        {
-            string monthString = "";
-            monthString += userInput[3];
-            monthString += userInput[4];
-            int month = Int32.Parse(monthString);
-            return month;
-        }
-
-        private int GetYearFromInput(String userInput)
-        {
-            string yearString = ""; 
-            yearString += userInput[6];
-            yearString += userInput[7];
-            yearString += userInput[8];
-            yearString += userInput[9];
-            int year = Int32.Parse(yearString);
-            return year;
+            int[] dateValues = userInput.Split("/").Select(p => int.Parse(p)).ToArray();
+            return dateValues;
         }
     }
 }
